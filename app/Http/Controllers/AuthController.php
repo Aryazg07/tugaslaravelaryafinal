@@ -49,13 +49,13 @@ class AuthController extends Controller
 
     function login(Request $request)
     {
+        $nik= $request->auth::user()->nik,
         $data = $request->only("username", "password");
         if(Auth::attempt($data)){
-            return redirect('/home');
+            return redirect('/home')->where('nik', '=', $nik);
         }else {
             return view('login');
         }
-        
     }
     
     function tampil_login()

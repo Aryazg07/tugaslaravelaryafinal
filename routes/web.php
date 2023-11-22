@@ -62,7 +62,7 @@ Route::get('/detail_tanggapan/{id}', [PetugasController::class, 'detail_petugas_
 Route::post('/detail_tanggapan/{id}', [PetugasController::class, 'proses_berikan_tanggapan',]);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [PengaduanController::class, 'index',]);
+    Route::get('/home', [PengaduanController::class, 'index',])->name('home');
 });
 
 Route::middleware(['CekPetugas'])->group(function () {
